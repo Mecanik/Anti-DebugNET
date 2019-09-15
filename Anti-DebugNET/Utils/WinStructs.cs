@@ -301,13 +301,13 @@ namespace Anti_DebugNET.Utils
             DIRECT_IMPERSONATION = (0x0200)
         }
 
-        [StructLayout(LayoutKind.Sequential)]
+        [System.Runtime.InteropServices.StructLayout(System.Runtime.InteropServices.LayoutKind.Sequential)]
         public struct SYSTEM_KERNEL_DEBUGGER_INFORMATION
         {
-            [MarshalAs(UnmanagedType.U1)]
+            [System.Runtime.InteropServices.MarshalAs(System.Runtime.InteropServices.UnmanagedType.U1)]
             public bool KernelDebuggerEnabled;
 
-            [MarshalAs(UnmanagedType.U1)]
+            [System.Runtime.InteropServices.MarshalAs(System.Runtime.InteropServices.UnmanagedType.U1)]
             public bool KernelDebuggerNotPresent;
         }
     }

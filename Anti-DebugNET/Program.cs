@@ -8,25 +8,19 @@ namespace Anti_DebugNET
 {
     class Program
     {
-        [System.Runtime.InteropServices.DllImport("kernel32.dll")]
-        static extern void RaiseException(uint dwExceptionCode, uint dwExceptionFlags, uint nNumberOfArguments, IntPtr lpArguments);
-
-        public const int EH_NONCONTINUABLE = 0x01;
-        public const int ERROR_INVALID_DATA = 0xD;
-
         static void Main(string[] args)
         {
+            // Recommended to scan before anything else, and not inside any threads
+            // It's not a big deal scan anyway, but it will ruine script-kids day :)
+            AntiDebugTools.Scanner.ScanAndKill();
 
-            if(AntiDebug.DebugProtect1.PerformChecks() == 1)
+            if (AntiDebug.DebugProtect1.PerformChecks() == 1)
             {
-                // Exceptions are caught by debuggers
-                // RaiseException(ERROR_INVALID_DATA, EH_NONCONTINUABLE, 0, new IntPtr(1));
                 Environment.FailFast("");
             }
 
-            if (AntiDebug.DebugProtect2.PerformChecks() ==1)
+            if (AntiDebug.DebugProtect2.PerformChecks() == 1)
             {
-                // RaiseException(ERROR_INVALID_DATA, EH_NONCONTINUABLE, 0, new IntPtr(1));
                 Environment.FailFast("");
             }
 
@@ -34,17 +28,19 @@ namespace Anti_DebugNET
             {
                 while (true)
                 {
-                    if(AntiDebug.DebugProtect1.PerformChecks() == 1)
+                    AntiDebugTools.Scanner.ScanAndKill();
+
+                    if (AntiDebug.DebugProtect1.PerformChecks() == 1)
                     {
                         Environment.FailFast("");
                     }
 
-                    if(AntiDebug.DebugProtect2.PerformChecks() == 1)
+                    if (AntiDebug.DebugProtect2.PerformChecks() == 1)
                     {
                         Environment.FailFast("");
                     }
 
-                    System.Threading.Thread.Sleep(500);
+                    System.Threading.Thread.Sleep(1000);
                 }
             });
 

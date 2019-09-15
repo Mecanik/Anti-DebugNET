@@ -24,6 +24,9 @@ namespace Anti_DebugNET.AntiDump
             VirtualProtect(address, sz, dwOld, ref temp);
         }
 
+        /// <summary>
+        /// WARNING! It breaks applications which are obfuscated.
+        /// </summary>
         public static void AntiDump()
         {
             var process             = System.Diagnostics.Process.GetCurrentProcess();

@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AntiDebugTools\Scanner.cs" />
     <Compile Include="AntiDebug\DebugProtect1.cs" />
     <Compile Include="AntiDebug\DebugProtect2.cs" />
     <Compile Include="AntiDebug\DebugProtect3.cs" />

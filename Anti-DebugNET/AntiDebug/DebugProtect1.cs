@@ -19,23 +19,27 @@ namespace Anti_DebugNET.AntiDebug
 
         /// <summary>
         /// Peform basic checks, method 1
+        /// Checks are very fast, there is no CPU overhead.
         /// </summary>
         public static int PerformChecks()
         {
             if(CheckDebuggerManagedPresent() == 1)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("CheckDebuggerManagedPresent: HIT");
                 return 1;
             }
 
             if (CheckDebuggerUnmanagedPresent() == 1)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("CheckDebuggerUnmanagedPresent: HIT");
                 return 1;
             }
 
             if (CheckRemoteDebugger() == 1)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("CheckRemoteDebugger: HIT");
                 return 1;
             }

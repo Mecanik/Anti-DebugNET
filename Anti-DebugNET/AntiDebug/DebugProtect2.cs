@@ -30,23 +30,27 @@ namespace Anti_DebugNET.AntiDebug
 
         /// <summary>
         /// Peform basic checks, method 2
+        /// Checks are very fast, there is a little CPU overhead.
         /// </summary>
         public static int PerformChecks()
         {
             if (CheckDebugPort() == 1)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("CheckDebugPort: HIT");
                 return 1;
             }
 
             if (CheckKernelDebugInformation())
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("CheckKernelDebugInformation: HIT");
                 return 1;
             }
 
             if (DetachFromDebuggerProcess())
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("DetachFromDebuggerProcess: HIT");
                 return 1;
             }
@@ -117,16 +121,6 @@ namespace Anti_DebugNET.AntiDebug
             }
 
             return true;
-        }
-
-        [StructLayout(LayoutKind.Sequential)]
-        public struct SYSTEM_KERNEL_DEBUGGER_INFORMATION
-        {
-            [MarshalAs(UnmanagedType.U1)]
-            public bool KernelDebuggerEnabled;
-
-            [MarshalAs(UnmanagedType.U1)]
-            public bool KernelDebuggerNotPresent;
         }
 
         private static bool CheckKernelDebugInformation()
