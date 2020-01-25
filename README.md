@@ -26,3 +26,11 @@
 
 ## Contribution
  Feel free to contribute with your own functions/methods. Just make sure you tested it properly.
+
+## Assistance
+ In your are in immediate need of commercial help/advice/assistance in protecting your .NET application, I can offer you my assistance for a small fee.
+ Please do contact me via my email or if you cannot do so open an issue.
+ 
+## Support me
+ Buy me a coffee to give me more energy and write more code :)
+ [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](paypal.me/NBoros1337)
