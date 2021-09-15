@@ -109,7 +109,11 @@ namespace Anti_DebugNET.AntiDebugTools
             BadProcessnameList.Add("ImportREC");
             BadProcessnameList.Add("IMMUNITYDEBUGGER");
             BadProcessnameList.Add("MegaDumper");
-
+            BadWindowTextList.Add("HTTPDebuggerUI");
+            BadWindowTextList.Add("HTTPDebuggerSvc");
+            BadWindowTextList.Add("HTTP Debugger");
+            BadWindowTextList.Add("HTTP Debugger (32 bit)");
+            BadWindowTextList.Add("HTTP Debugger (64 bit)");
             BadWindowTextList.Add("OLLYDBG");
             BadWindowTextList.Add("ida");
             BadWindowTextList.Add("disassembly");
